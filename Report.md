@@ -25,20 +25,20 @@ Các hướng tiếp cận này song song tồn tại, phù hợp với những 
 ### 2.1. Lược sử phát triển
 
 - **Giai đoạn luật-concatenative (trước deep learning)**  
-  Nhiều hệ thống TTS cổ điển dựa trên các luật ngữ âm, hệ thống từ điển phát âm và nối các đơn vị tiếng nói đã được ghi âm sẵn (diphone, triphone, unit selection). Xem trong sách của Taylor [1].
+  Nhiều hệ thống TTS cổ điển dựa trên các luật ngữ âm, hệ thống từ điển phát âm và nối các đơn vị tiếng nói đã được ghi âm sẵn (diphone, triphone, unit selection). Xem trong sách của Taylor [1](#ref1).
 
 - **Giai đoạn thống kê tham số (statistical parametric TTS)**  
   Dùng HMM/GMM để mô hình hoá phổ, F0, độ dài khung, sau đó dùng vocoder (WORLD, STRAIGHT) để tổng hợp tiếng nói. Tiếng nói mượt hơn nhưng có cảm giác "metallic" và kém tự nhiên.
 
 - **Thời kỳ neural TTS (Level 2)**  
-  DeepMind công bố WaveNet [2], Google/DeepMind ra Tacotron, Tacotron 2 [3]; Microsoft, Baidu, ... đề xuất Deep Voice, FastSpeech, FastPitch.  
-  Gần đây xuất hiện mô hình end-to-end như VITS [4] kết hợp text → mel + vocoder trong một mạng duy nhất.
+  DeepMind công bố WaveNet [2](#ref2), Google/DeepMind ra Tacotron, Tacotron 2 [3](#ref3); Microsoft, Baidu, ... đề xuất Deep Voice, FastSpeech, FastPitch.  
+  Gần đây xuất hiện mô hình end-to-end như VITS [4](#ref4) kết hợp text → mel + vocoder trong một mạng duy nhất.
 
 - **Thời kỳ few-shot / zero-shot (Level 3)**  
-  Các công trình như YourTTS [5], VALL-E [6], Voicebox [7] dùng kiến trúc encoder–decoder lớn, mã hoá giọng thành embedding và sinh tiếng nói mới từ vài giây ví dụ.
+  Các công trình như YourTTS [5](#ref5), VALL-E [6](#ref6), Voicebox [7](#ref7) dùng kiến trúc encoder–decoder lớn, mã hoá giọng thành embedding và sinh tiếng nói mới từ vài giây ví dụ.
 
 - **Xu hướng mới: Expressive & controllable TTS, watermarking & chống deepfake**  
-  Nhiều survey (ví dụ Anusuya & Katti, 2024 [8]; IJCRT 2025 [9]) nhấn mạnh việc thêm điều khiển cảm xúc, phong cách, độ nói nhanh–chậm, cũng như nghiên cứu watermark hoá đầu ra để tránh lạm dụng deepfake.
+  Nhiều survey (ví dụ Anusuya & Katti, 2024 [8](#ref8); IJCRT 2025 [9](#ref9)) nhấn mạnh việc thêm điều khiển cảm xúc, phong cách, độ nói nhanh–chậm, cũng như nghiên cứu watermark hoá đầu ra để tránh lạm dụng deepfake.
 
 ### 2.2. Kiến trúc pipeline tổng quát
 
@@ -144,17 +144,17 @@ Mục tiêu Level 3 là: **chỉ từ vài giây tiếng nói mẫu**, hệ th�
 
 Các mô hình điển hình:
 
-- **YourTTS** [5]: 
+- **YourTTS** [5](#ref5): 
   - Huấn luyện trên tập đa ngôn ngữ lớn.
   - Học embedding loa từ mẫu speech đầu vào.
   - Cho phép zero-shot cross-lingual TTS: dùng giọng của người nói tiếng này để nói ngôn ngữ khác.
 
-- **VALL-E** [6]:
+- **VALL-E** [6](#ref6):
   - Sử dụng discrete codec (như EnCodec) để mã hoá speech thành token.
   - Huấn luyện mô hình language model trên chuỗi token (tương tự GPT cho audio).
   - Given vài giây prompt, mô hình sinh tiếp đoạn tiếp theo giữ nguyên giọng.
 
-- **Voicebox** [7] và các hệ thống tương tự:  
+- **Voicebox** [7](#ref7) và các hệ thống tương tự:  
   Tập trung vào tổng hợp speech linh hoạt (speech infilling, style transfer) dựa trên generative model lớn.
 
 ### 5.2. Ưu điểm
@@ -236,9 +236,9 @@ Các tổ chức nghiên cứu và doanh nghiêp đề xuất nhiều biện ph�
 Watermark là kỹ thuật **nhúng tín hiệu bí mật** vào đầu ra TTS để máy có thể phát hiện nội dung là do AI sinh ra, trong khi tai người gần như không nhận ra.
 
 - **Watermark tín hiệu audio**: chèn mẫu tín hiệu ở miền tần số/thời gian sao cho bền vững với nén, truyền qua mạng nhưng không làm giảm chất lượng cảm nhận.  
-  Tham khảo các nghiên cứu watermark audio tổng quát trong sách Cox et al., 2008 [10].
+  Tham khảo các nghiên cứu watermark audio tổng quát trong sách Cox et al., 2008 [10](#ref10).
 
-- **Watermark ở mức mô hình / token**: với các hệ thống dựa trên token (codec token, mel token), có thể áp dụng ý tưởng tương tự **watermark cho LLM** (như trong công trình của Kirchenbauer et al., 2023 [11]) để điều chỉnh phân phối xác suất sinh token theo một pattern bí mật.
+- **Watermark ở mức mô hình / token**: với các hệ thống dựa trên token (codec token, mel token), có thể áp dụng ý tưởng tương tự **watermark cho LLM** (như trong công trình của Kirchenbauer et al., 2023 [11](#ref11)) để điều chỉnh phân phối xác suất sinh token theo một pattern bí mật.
 
 - **Kết hợp watermark + detector**: thiết kế riêng bộ phát hiện sử dụng watermark để tăng độ chính xác, đồng thới huấn luyện mô hình chống lại các thao tác xoá watermark (nén, thêm nhiễu, chỉnh pitch).
 
@@ -271,14 +271,14 @@ Trong tương lai gần, TTS có khả năng trở thành một thành phần m�
 
 ## Tài liệu tham khảo
 
-[1] Taylor, P. (2009). *Text-to-Speech Synthesis*. Cambridge University Press.
-[2] Oord, A. v. d., Dieleman, S., Zen, H., Simonyan, K., Vinyals, O., Graves, A., ... & Kavukcuoglu, K. (2016). WaveNet: A generative model for raw audio. *arXiv preprint arXiv:1609.03499*.
-[3] Shen, J., Pang, R., Weiss, R. J., Schuster, M., Jaitly, N., Yang, Z., ... & Wu, Y. (2018). Natural TTS synthesis by conditioning WaveNet on mel spectrogram predictions. *ICASSP*.
-[4] Kim, J., Kong, J., & Son, J. (2021). Conditional variational autoencoder with adversarial learning for end-to-end text-to-speech. (VITS). *ICML*.
-[5] Casanova, E., Weber, J., Shulby, C., Gölge, E., et al. (2022). YourTTS: Towards zero-shot multi-speaker TTS and zero-shot voice conversion for everyone. *arXiv:2112.02418*.
-[6] Wang, C., Chen, S., Wu, Y., Zhang, Z., et al. (2023). Neural codec language models are zero-shot text-to-speech synthesizers. (VALL-E). *arXiv:2301.02111*.
-[7] Le, P., et al. (2023). Voicebox: Text-guided multilingual universal speech generation at scale. *Meta AI report*.
-[8] Anusuya, M. A., & Katti, S. K. (2024). Deep learning-based expressive speech synthesis: a systematic review. *EURASIP Journal on Audio, Speech, and Music Processing*.
-[9] IJCRT. (2025). A Comprehensive Review on Text-To-Speech (TTS). *International Journal of Creative Research Thoughts*, IJCRT2507281.
-[10] Cox, I. J., Miller, M. L., Bloom, J. A., Fridrich, J., & Kalker, T. (2008). *Digital Watermarking and Steganography*. Morgan Kaufmann.
-[11] Kirchenbauer, J., et al. (2023). Watermarking Language Models. *arXiv preprint arXiv:2302.06571*.
+<a id="ref1"></a>[1] Taylor, P. (2009). *Text-to-Speech Synthesis*. Cambridge University Press.
+<a id="ref2"></a>[2] Oord, A. v. d., Dieleman, S., Zen, H., Simonyan, K., Vinyals, O., Graves, A., ... & Kavukcuoglu, K. (2016). WaveNet: A generative model for raw audio. *arXiv preprint arXiv:1609.03499*.
+<a id="ref3"></a>[3] Shen, J., Pang, R., Weiss, R. J., Schuster, M., Jaitly, N., Yang, Z., ... & Wu, Y. (2018). Natural TTS synthesis by conditioning WaveNet on mel spectrogram predictions. *ICASSP*.
+<a id="ref4"></a>[4] Kim, J., Kong, J., & Son, J. (2021). Conditional variational autoencoder with adversarial learning for end-to-end text-to-speech. (VITS). *ICML*.
+<a id="ref5"></a>[5] Casanova, E., Weber, J., Shulby, C., Gölge, E., et al. (2022). YourTTS: Towards zero-shot multi-speaker TTS and zero-shot voice conversion for everyone. *arXiv:2112.02418*.
+<a id="ref6"></a>[6] Wang, C., Chen, S., Wu, Y., Zhang, Z., et al. (2023). Neural codec language models are zero-shot text-to-speech synthesizers. (VALL-E). *arXiv:2301.02111*.
+<a id="ref7"></a>[7] Le, P., et al. (2023). Voicebox: Text-guided multilingual universal speech generation at scale. *Meta AI report*.
+<a id="ref8"></a>[8] Anusuya, M. A., & Katti, S. K. (2024). Deep learning-based expressive speech synthesis: a systematic review. *EURASIP Journal on Audio, Speech, and Music Processing*.
+<a id="ref9"></a>[9] IJCRT. (2025). A Comprehensive Review on Text-To-Speech (TTS). *International Journal of Creative Research Thoughts*, IJCRT2507281.
+<a id="ref10"></a>[10] Cox, I. J., Miller, M. L., Bloom, J. A., Fridrich, J., & Kalker, T. (2008). *Digital Watermarking and Steganography*. Morgan Kaufmann.
+<a id="ref11"></a>[11] Kirchenbauer, J., et al. (2023). Watermarking Language Models. *arXiv preprint arXiv:2302.06571*.
