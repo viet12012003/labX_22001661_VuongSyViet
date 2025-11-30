@@ -25,7 +25,7 @@ Các hướng tiếp cận này song song tồn tại, phù hợp với những 
 ### 2.1. Lược sử phát triển
 
 - **Giai đoạn luật-concatenative (trước deep learning)**  
-  Nhiều hệ thống TTS cổ điển dựa trên các luật ngữ âm, hệ thống từ điển phát âm và nối các đơn vị tiếng nói đã được ghi âm sẵn (diphone, triphone, unit selection). Xem trong sách của Taylor [1](#ref1).
+  Nhiều hệ thống TTS cổ điển dựa trên các luật ngữ âm, hệ thống từ điển phát âm và nối các đơn vị tiếng nói đã được ghi âm sẵn (diphone, triphone, unit selection). Xem trong sách của Taylor [[1]](#ref1).
 
 - **Giai đoạn thống kê tham số (statistical parametric TTS)**  
   Dùng HMM/GMM để mô hình hoá phổ, F0, độ dài khung, sau đó dùng vocoder (WORLD, STRAIGHT) để tổng hợp tiếng nói. Tiếng nói mượt hơn nhưng có cảm giác "metallic" và kém tự nhiên.
@@ -272,13 +272,23 @@ Trong tương lai gần, TTS có khả năng trở thành một thành phần m�
 ## Tài liệu tham khảo
 
 <a id="ref1"></a>[1] Taylor, P. (2009). *Text-to-Speech Synthesis*. Cambridge University Press.
+
 <a id="ref2"></a>[2] Oord, A. v. d., Dieleman, S., Zen, H., Simonyan, K., Vinyals, O., Graves, A., ... & Kavukcuoglu, K. (2016). WaveNet: A generative model for raw audio. *arXiv preprint arXiv:1609.03499*.
+
 <a id="ref3"></a>[3] Shen, J., Pang, R., Weiss, R. J., Schuster, M., Jaitly, N., Yang, Z., ... & Wu, Y. (2018). Natural TTS synthesis by conditioning WaveNet on mel spectrogram predictions. *ICASSP*.
+
 <a id="ref4"></a>[4] Kim, J., Kong, J., & Son, J. (2021). Conditional variational autoencoder with adversarial learning for end-to-end text-to-speech. (VITS). *ICML*.
+
 <a id="ref5"></a>[5] Casanova, E., Weber, J., Shulby, C., Gölge, E., et al. (2022). YourTTS: Towards zero-shot multi-speaker TTS and zero-shot voice conversion for everyone. *arXiv:2112.02418*.
+
 <a id="ref6"></a>[6] Wang, C., Chen, S., Wu, Y., Zhang, Z., et al. (2023). Neural codec language models are zero-shot text-to-speech synthesizers. (VALL-E). *arXiv:2301.02111*.
+
 <a id="ref7"></a>[7] Le, P., et al. (2023). Voicebox: Text-guided multilingual universal speech generation at scale. *Meta AI report*.
+
 <a id="ref8"></a>[8] Anusuya, M. A., & Katti, S. K. (2024). Deep learning-based expressive speech synthesis: a systematic review. *EURASIP Journal on Audio, Speech, and Music Processing*.
+
 <a id="ref9"></a>[9] IJCRT. (2025). A Comprehensive Review on Text-To-Speech (TTS). *International Journal of Creative Research Thoughts*, IJCRT2507281.
+
 <a id="ref10"></a>[10] Cox, I. J., Miller, M. L., Bloom, J. A., Fridrich, J., & Kalker, T. (2008). *Digital Watermarking and Steganography*. Morgan Kaufmann.
+
 <a id="ref11"></a>[11] Kirchenbauer, J., et al. (2023). Watermarking Language Models. *arXiv preprint arXiv:2302.06571*.
