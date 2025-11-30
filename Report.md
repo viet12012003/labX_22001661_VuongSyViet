@@ -271,7 +271,7 @@ Trong tương lai gần, TTS có khả năng trở thành một thành phần m�
 
 ## Tài liệu tham khảo
 
-<a id="ref1"></a>[1] Taylor, P. (2009). *Text-to-Speech Synthesis*. Cambridge University Press.
+<a href="#ref1" style="text-decoration:none;">1</a>[1] Taylor, P. (2009). *Text-to-Speech Synthesis*. Cambridge University Press.
 
 <a id="ref2"></a>[2] Oord, A. v. d., Dieleman, S., Zen, H., Simonyan, K., Vinyals, O., Graves, A., ... & Kavukcuoglu, K. (2016). WaveNet: A generative model for raw audio. *arXiv preprint arXiv:1609.03499*.
 
